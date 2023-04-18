@@ -40,7 +40,7 @@ class PomodoroTimer:
     # method containing the main logic
     def start_timer(self):
         self.start = True
-        if self.start == True and self.stop == False:
+        if self.start and not self.stop:
             if self.tot_seconds > 0:
                 minute, seconds = divmod(self.tot_seconds, 60)
                 self.min_.set(f"{minute:02d}")
@@ -68,7 +68,7 @@ class PomodoroTimer:
         messagebox.showinfo(title='Pause', message='Time to take a 10 minutes break!')
 
     def stop_timer(self):
-       if self.start == True and self.stop == False:
+       if self.start and not self.stop:
         self.start = False
         self.stop = True
 
